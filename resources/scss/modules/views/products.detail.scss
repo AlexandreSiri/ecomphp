@@ -1,0 +1,245 @@
+.products-detail {
+    margin: width(87) width(200) width(128);
+    padding-top: width(64);
+    .navigation {
+        display: flex;
+        column-gap: width(16);
+        a {
+            position: relative;
+            text-decoration: none;
+            color: $text;
+            font-size: width(20);
+            font-weight: 700;
+            &.gray {
+                color: $gray;
+            }
+            &:not(:last-child)::after {
+                position: absolute;
+                content: "/";
+                width: width(16);
+                height: 100%;
+                // background: red;
+                left: 100%;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .container {
+        display: grid;
+        grid-template-columns: auto 1fr width(364);
+        column-gap: width(160);
+        margin: width(32) 0 width(128);
+        .images-list {
+            display: flex;
+            flex-direction: column;
+            row-gap: width(16);
+            .image {
+                width: width(112);
+                height: width(112);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: all 0.3s;
+                &.selected {
+                    opacity: 0.2;
+                }
+                &:not(.selected):hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+        .image-large {
+            padding-bottom: 100%;
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .content {
+            color: $text;
+            display: flex;
+            flex-direction: column;
+            h4 {
+                font-size: width(40);
+                font-weight: 700;
+                margin: 0;
+                line-height: 1;
+            }
+            .information {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: width(12) 0 width(24);
+                .price {
+                    font-size: width(20);
+                }
+            }
+            .choices {
+                margin-bottom: width(32);
+                .choices-label {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: width(20);
+                    padding: width(16) width(8);
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        height: width(1);
+                        background: $background;
+                    }
+                    &::before {
+                        top: 0;
+                    }
+                    &::after {
+                        bottom: 0;
+                    }
+                    .label {
+                        text-decoration: underline;
+                    }
+                    .value {
+                        font-weight: 700;
+                    }
+                }
+                .choices-list {
+                    padding: width(16) width(8) 0;
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    column-gap: width(12);
+                    row-gap: width(12);
+                    .choice {
+                        position: relative;
+                        display: block;
+                        height: width(60);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: width(20);
+                        cursor: pointer;
+                        background-position: center center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        user-select: none;
+                        &.disabled {
+                            opacity: 0.5;
+                            cursor: default;
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            height: width(4);
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background: $gray;
+                            transform: scaleX(0);
+                            transition: all 0.3s;
+                        }
+                        &:not(.selected):not(.disabled):hover::before {
+                            transform: scaleX(0.5);
+                        }
+                        &.selected::before {
+                            transform: scaleX(1);
+                            background: $text;
+                        }
+                    }
+                    div.choice {
+                        border: width(1) solid $text;
+                    }
+                }
+            }
+            button.btn {
+                margin-top: width(32);
+            }
+        }
+    }
+    .reviews {
+        margin: 0 width(200);
+        color: $text;
+        .reviews-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: width(24);
+            h4 {
+                margin: 0;
+                font-size: width(40);
+                font-weight: 700;
+            }
+        }
+        .reviews-head {
+            position: relative;
+            margin: width(40) 0;
+            padding: width(16) width(8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            &::before,
+            &::after {
+                position: absolute;
+                content: "";
+                left: 0;
+                right: 0;
+                height: width(1);
+                background: $background;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            .filters {
+                display: flex;
+                align-items: center;
+                column-gap: width(72);
+            }
+        }
+        .reviews-list {
+            padding: 0 width(8);
+            .review {
+                position: relative;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                column-gap: width(32);
+                align-items: center;
+                &:not(:last-child) {
+                    margin-bottom: width(64);
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: -#{width(8)};
+                        right: -#{width(8)};
+                        height: width(1);
+                        background: $background;
+                        top: calc(100% + #{width(24)});
+                        transform: translateY(-50%);
+                    }
+                }
+                .review-content {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: width(12);
+                    font-size: width(20);
+                    .review-title {
+                        font-weight: 700;
+                    }
+                    .review-footer {
+                        display: flex;
+                        column-gap: width(32);
+                        .author {
+                            color: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

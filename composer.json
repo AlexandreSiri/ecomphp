@@ -1,0 +1,35 @@
+{
+    "name": "maximilien/e-commerce",
+    "authors": [
+        {
+            "name": "Maximilien BEY",
+            "email": "bey.maximilien@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "functions/views.php",
+            "functions/routes.php",
+            "functions/config.php",
+            "functions/files.php",
+            "functions/stop.php",
+            "functions/array.php",
+            "functions/date.php",
+            "functions/session.php",
+            "functions/template.php",
+            "functions/slugify.php"
+        ]
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.0",
+        "symfony/error-handler": "^6.0"
+    },
+    "require": {
+        "fakerphp/faker": "^1.17",
+        "ramsey/uuid": "^4.2",
+        "konekt/pdf-invoice": "^1.10"
+    }
+}

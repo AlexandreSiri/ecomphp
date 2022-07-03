@@ -1,0 +1,62 @@
+.auth {
+    position: relative;
+    min-height: 100vh;
+    padding: width(87) width(200);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: width(280);
+    align-items: center;
+    background: $primary;
+    .illustration {
+
+    }
+    .form {
+        background: #ffffff;
+        padding: width(64);
+        border-radius: width(32);
+        color: $text;
+        h4 {
+            margin: 0;
+            text-align: center;
+            font-size: width(40);
+            font-weight: 700;
+            margin-bottom: width(24);
+        }
+        p {
+            margin: 0;
+            text-align: center;
+            font-size: width(24);
+            a {
+                text-decoration: none;
+                color: $primary;
+            }
+        }
+        form {
+            margin-top: width(32);
+            display: flex;
+            flex-direction: column;
+            row-gap: width(24);
+            label {
+                user-select: none;
+            }
+            button {
+                margin-top: width(8);
+                align-self: center;
+            }
+            .form-inline {
+                display: flex;
+                column-gap: width(32);
+            }
+            .form-checkbox {
+                display: flex;
+                align-items: center;
+                label {
+                    cursor: pointer;
+                    padding-left: width(32);
+                    font-size: width(20);
+                    color: $text;
+                }
+            }
+        }
+    }
+}

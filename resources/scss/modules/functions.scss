@@ -1,0 +1,4 @@
+@function width($pixels) {
+    $width: $pixels / 1920 * 100;
+    @return $width + vw
+}

@@ -1,0 +1,12 @@
+<?php
+
+use App\Helpers\Console\Dotenv;
+use App\Helpers\Console\Kernel;
+
+require __DIR__ . '/vendor/autoload.php';
+
+(new Dotenv(__DIR__ . "/.env"))->load();
+$kernel = new Kernel();
+$status = $kernel->run(Kernel::getCommand($argv), Kernel::getParams($argv));
+
+exit($status);

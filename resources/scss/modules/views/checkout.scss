@@ -1,0 +1,276 @@
+.checkout {
+    position: relative;
+    margin: width(87) 0 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: calc(100vh - #{width(87)});
+    & > div {
+        height: 100%;
+        overflow-y: scroll;
+        padding: width(64) width(160);
+    }
+    .cart {
+        background: $background;
+        .cart-products {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            row-gap: width(32);
+            position: relative;
+            height: calc(100%);
+            .illustration {
+                display: none;
+                &.visible {
+                    display: flex;
+                }
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                flex-direction: column;
+                text-align: center;
+                row-gap: width(32);
+                svg {
+                    width: 100%;
+                }
+                h4 {
+                    font-size: width(24);
+                    color: $text;
+                }
+            }
+            .cart-product {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                column-gap: width(32);
+                align-items: center;
+                background: #ffffff;
+                padding: width(24) width(32);
+                border-radius: width(16);
+                &:last-child {
+                    margin-bottom: width(64);
+                }
+                .image {
+                    width: width(96);
+                    height: width(96);
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    border-radius: width(16);
+                }
+                .content {
+                    h4 {
+                        font-size: width(20);
+                        margin: 0;
+                        color: $text;
+                        font-weight: 700;
+                        a {
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                    }
+                    p {
+                        font-size: width(16);
+                        margin: width(8) 0;
+                        color: $gray;
+                    }
+                }
+                .count {
+                    display: flex;
+                    align-items: center;
+                    column-gap: width(32);
+                    .panel {
+                        display: flex;
+                        align-items: center;
+                        column-gap: width(16);
+                        span {
+                            font-size: width(16);
+                            color: $gray;
+                            width: width(20);
+                            text-align: center;
+                        }
+                        button {
+                            position: relative;
+                            color: $gray;
+                            background: none;
+                            outline: none;
+                            border: none;
+                            width: width(28);
+                            height: width(28);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            svg {
+                                fill: $gray;
+                                width: width(10);
+                            }
+                            &:disabled {
+                                cursor: default;
+                            }
+                            &::before {
+                                position: absolute;
+                                content: "";
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                top: 0;
+                                border: width(1) solid rgba($gray, 0.25);
+                                background: rgba($gray, 0);
+                                border-radius: 50%;
+                                transition: all 0.3s;
+                            }
+                            &:not(:disabled):hover::before {
+                                background: rgba($gray, 0.1);
+                            }
+                        }
+                    }
+                    .delete {
+                        position: relative;
+                        height: width(14);
+                        width: width(14);
+                        cursor: pointer;
+                        background: none;
+                        outline: none;
+                        border: none;
+                        &:disabled {
+                            cursor: default;
+                        }
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            top: -#{width(8)};
+                            left: -#{width(8)};
+                            right: -#{width(8)};
+                            bottom: -#{width(8)};
+                            border-radius: 50%;
+                            background: rgba($primary, 0.15);
+                            opacity: 0;
+                            transition: all 0.3s;
+                        }
+                        &:not(:disabled):hover::before {
+                            opacity: 1;
+                        }
+                        svg {
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .payment {
+        display: flex;
+        flex-direction: column;
+        row-gap: width(64);
+        .payment-head {
+            color: $text;
+            h3 {
+                font-size: width(40);
+                font-weight: 700;
+                margin: 0 0 width(12);
+            }
+            p {
+                margin: 0;
+                font-size: width(24);
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: width(40);
+        }
+        .information-label {
+            margin: 0 0 width(12);
+            color: $text;
+            font-weight: 700;
+            font-size: width(20);
+        }
+        .delivery-information {
+            display: flex;
+            flex-direction: column;
+            row-gap: width(24);
+            .delivery-addresses {
+                .addresses {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: width(12);
+                    align-items: flex-start;
+                    .address,
+                    .add {
+                        display: flex;
+                        align-items: center;
+                        font-size: width(16);
+                        column-gap: width(8);
+                        cursor: pointer;
+                        transition: all .15s;
+                        user-select: none;
+                        svg path {
+                            fill: $text;
+                            transition: all .15s;
+                        }
+                        &.active {
+                            color: $primary;
+                            svg path {
+                                fill: $primary;
+                            }
+                        }
+                    }
+                    .address {
+                        svg {
+                            height: width(20);
+                            fill: $text;
+                        }
+                    }
+                    .add {
+                        align-items: baseline;
+                        svg {
+                            height: width(10);
+                        }
+                    }
+                }
+            }
+            .delivery-address {
+                display: none;
+                &.active {
+                    display: block;
+                }
+                .delivery-form {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: width(12);
+                    .form-inline {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        column-gap: width(12);
+                    }
+                }
+            }
+        }
+        .payment-foot {
+            display: flex;
+            flex-direction: column;
+            row-gap: width(40);
+            ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                row-gap: width(16);
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: width(20);
+                    color: $text;
+                    &.bold {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

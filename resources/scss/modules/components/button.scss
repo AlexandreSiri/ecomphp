@@ -1,0 +1,45 @@
+a.btn {
+    text-decoration: none;
+}
+.btn {
+    text-align: center;
+    border: none;
+    color: $text;
+    padding: width(16) width(64);
+    border-radius: width(16);
+    font-size: width(24);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .3s;
+    outline: none;
+    &:disabled {
+        cursor: default;
+    }
+
+    &.btn-primary {
+        background: $primary;
+        color: #ffffff;
+        &:disabled {
+            background: lighten($primary, 5);
+        }
+        &:not(:disabled) {
+            &:hover, &:active, &:focus {
+                background: darken($primary, 5)
+            }
+        }
+    }
+    &.btn-outline {
+        background: none;
+        border: width(2) solid $secondary;
+        color: $secondary;
+        &:disabled {
+            border: width(2) solid lighten($secondary, 5);
+        }
+        &:not(:disabled) {
+            &:hover, &:active, &:focus {
+                color: darken($secondary, 5);
+                border-color: darken($secondary, 5);
+            }
+        }
+    }
+}

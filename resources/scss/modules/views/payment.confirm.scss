@@ -1,0 +1,28 @@
+.page-illustration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: width(87) 0 0;
+    padding-top: width(64);
+    row-gap: width(64);
+    svg {
+        width: width(480);
+    }
+    .page-illustration-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        row-gap: width(12);
+        color: $text;
+        h5 {
+            margin: 0;
+            font-weight: 700;
+            font-size: width(24);
+        }
+        p {
+            margin: 0;
+            font-size: width(20);
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.rating {
+    display: flex;
+    &.large .star {
+        width: width(24);
+    }
+    &.ratable .star {
+        cursor: pointer;
+    }
+    .star {
+        position: relative;
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: width(16);
+            bottom: 0;
+            svg path {
+                fill: $primary;
+            }
+        }
+        &.filled svg path {
+            fill: $primary;
+        }
+        svg {
+            width: width(16);
+        }
+        &:not(:last-child) {
+            padding-right: width(4);
+        }
+    }
+    &.hover-1 {
+        .star:nth-child(1) {
+            & svg path {
+                fill: $primary; 
+            }
+        }
+        .star:not(:nth-child(1)) {
+            & svg path {
+                fill: $background; 
+            }
+        }
+    }
+    &.hover-2 {
+        .star:nth-child(1), .star:nth-child(2) {
+            & svg path {
+                fill: $primary; 
+            }
+        }
+        .star:not(:nth-child(1)):not(:nth-child(2)) {
+            & svg path {
+                fill: $background; 
+            }
+        }
+    }
+    &.hover-3 {
+        .star:not(:nth-child(4)):not(:nth-child(5)) {
+            & svg path {
+                fill: $primary; 
+            }
+        }
+        .star:nth-child(4), .star:nth-child(5) {
+            & svg path {
+                fill: $background; 
+            }
+        }
+    }
+    &.hover-4 {
+        .star:not(:nth-child(5)) {
+            & svg path {
+                fill: $primary; 
+            }
+        }
+        .star:nth-child(5) {
+            & svg path {
+                fill: $background; 
+            }
+        }
+    }
+    &.hover-5 {
+        .star svg path {
+            fill: $primary; 
+        }
+    }
+}
